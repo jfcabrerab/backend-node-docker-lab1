@@ -18,6 +18,7 @@ services:
       - db_name
       - db_user_name
   backend:
+    image: ghcr.io/jfcabrerab/miapp-backend:lab-1
     build:
       context: .
       dockerfile: Dockerfile
@@ -25,7 +26,7 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: db
+      DB_HOST: ${DB_HOST}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
